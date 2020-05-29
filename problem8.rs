@@ -1,16 +1,14 @@
 // Return largest product of 's' consecutive integers in the number n
-fn largest_product(n: String, s: u64) {
+fn largest_product(n: String, s: usize) {
 
     let digits_32:Vec<u32> = n.chars().map(|d| d.to_digit(10).unwrap()).collect();
     let digits:Vec<u64> = digits_32.iter().map(|d| (*d as u64)).collect();
-//    println!("{:?}", digits);
-
+    
     let mut largest:u64 = 1;
     let limit = digits.len() - 13;
     
     for i in 0..limit {
-        let mut vs: &[u64] = &digits[i..i+13];      
-//        println!("{:?}", vs);
+        let mut vs: &[u64] = &digits[i..i+s];      
 
         let mut prod: u64 = vs.iter().fold(1, |prod, x| prod*x);
         
