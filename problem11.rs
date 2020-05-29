@@ -97,7 +97,7 @@ fn main() {
     let mut mygrid = Grid { data: vec![vec![0; 20]; 20], height: 20, width: 20};
     mygrid.read("grid.txt".to_string());
 
-    let mut prod = 0;
+    let mut prod;
     let mut largest = 0;
 
     for x in 0..mygrid.width {
