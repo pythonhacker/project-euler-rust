@@ -11,7 +11,7 @@ fn get_divisors(n:i64, divisors: &mut HashMap<i64, i64>) -> i64 {
 
     let mut cnt:i64 = 2;
 
-    for x in (2..n/2+1) {
+    for x in 2..n/2+1 {
         if n %x == 0 {
             cnt += 1;
         }
@@ -51,10 +51,10 @@ fn get_triangle_number(n:i64) -> i64 {
 fn get_first_with_n_divisors(n:i64) -> i64 {
 
     let mut number:i64 = 100;
-    let mut n_divisors = 0;
+    let mut n_divisors;
     let mut divisors: HashMap<i64, i64> = HashMap::new();
     
-    while true {
+    loop {
         n_divisors = get_divisors_triangle(number, &mut divisors);
         if n_divisors >= n {
             break;
