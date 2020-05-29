@@ -72,7 +72,6 @@ fn word3(n:i32, d1: &HashMap<i32, String>, d2: &HashMap<i32, String>) -> String 
 
     let n1: i32;
     let n2: i32;
-    let n3: i32;    
     let mut s: String;
     let s2: String;
     
