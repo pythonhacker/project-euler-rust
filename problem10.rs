@@ -18,19 +18,19 @@ fn is_prime(number: i64, primes: &Vec<i64>) -> bool {
 
 fn prime_sum(limit: i64) -> i64 {
 
-    let (mut n, mut S)=(2,0);
+    let (mut n, mut sum)=(2,0);
     let mut primes:Vec<i64> = vec![2];
     
     while n<limit {
         if is_prime(n, &primes) {
-            S += n;
+            sum += n;
             primes.push(n);
         }
 
         n += 1;
     }
         
-    return S;
+    return sum;
 }
 
 fn main() {
