@@ -6,8 +6,8 @@ fn triplet_finder(n:i32) -> (i32, i32, i32) {
     let mut triplet = (0,0,0);
     let mut z:i32;
     
-    for x in (1..n+1) {
-        for y in (1..n+1) {
+    for x in 1..n+1 {
+        for y in 1..n+1 {
             if x+y>n { continue; }
             z = n - (x+y);
             if x*x + y*y == z*z  {
