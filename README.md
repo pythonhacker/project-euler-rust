@@ -4,7 +4,9 @@ The repo contains solutions to [Project Euler][https://projecteuler.net/] in Rus
 
 ## Source files
 
-Each source file maps to a given Project Euler problem by index.
+Each source file maps to a given Project Euler problem by index. So `Problem `1 -> `problem1.rs`, `Problem 2` -> `problem2.rs` etc.
+
+The compilation is done using Rust's cargo tool.
 
 ## Create `Cargo.toml`
 
