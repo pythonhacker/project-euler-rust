@@ -22,15 +22,12 @@ fn largest_palindrome(number: i32, diff: i32) -> i32 {
 
     let (n1,n2) = (number-1, number-1);
     let (mut largest, mut n) = (0, 0);
-    let (mut max_x, mut max_y) = (0, 0);
 
     for x in (n1-diff..n1).rev() {
         for y in (n2-diff..n2).rev() {
             n = x*y;
             if is_palindrome(n as i64) && n>largest {
                 largest = n;
-                max_x = x;
-                max_y = y;
             }
         }
     }
