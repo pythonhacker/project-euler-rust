@@ -1,0 +1,41 @@
+//  Lattice paths
+
+// Recursive solution
+fn npath(x: i64, y: i64, h: i64, w: i64)->i64 {
+
+    if x == w || y == h {
+        return 1;
+    }
+    else {
+        return npath(x+1, y, h, w) + npath(x, y+1, h, w);
+    }
+}
+
+// Iterative solution
+fn npaths_i(n: u128) -> u128 {
+
+    //Answer: 2nCn -> (2n)!/(n!*n!)
+    let twicen: u128 = 2*n;
+    let mut prod1: u128 = 1;
+    let mut prod2: u128 = 1;
+
+    // Why this round-about ? Because in Rust apparently the largest
+    // integer is 2**128. factorial(40) is way above that!
+    // This is (n+1)*(n+2)...2n or (2n!)/(n!)
+    for x in (n+1..twicen+1) {
+        prod1 *= x;
+    }
+
+    // This is n!
+    for x in (1..n+1) {
+        prod2 *= x;
+    }    
+
+    // This is (2n)!/(n!*n!)
+    return prod1/prod2;
+}
+
+fn main() {
+    //    println!("{}", npath(0,0,20,20));
+    println!("{}", npaths_i(20));
+}
