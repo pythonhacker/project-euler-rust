@@ -1,6 +1,6 @@
 ## About
 
-The repo contains solutions to [Project Euler][https://projecteuler.net/] in Rust.
+The repo contains solutions to [Project Euler][1] in Rust.
 
 ## Source files
 
@@ -21,3 +21,6 @@ Run the script `build_cargo.py` using python to create a `Cargo.toml` from the r
 A given solution can be run by using its binary. Example to run solution to `Problem 1`
 
     $ cargo run --bin problem1
+
+
+[1]: http://projecteuler.net
