@@ -35,16 +35,12 @@ fn is_abundant(n: i64, divisors: &mut HashMap<i64, i64>, cache: &mut HashMap<i64
     
     let sum_d = get_divisor_sum(n, divisors);
 
-    if sum_d == n {
-        // perfect number
-        cache.insert(n, false);
-        return false;
-    } else if sum_d > n {
+    if sum_d > n {
         // Abundant number
         cache.insert(n, true);        
         return true;
     } else {
-        // Deficient number
+        // Deficient or perfect number
         cache.insert(n, false);        
         return false;
     }
