@@ -26,4 +26,4 @@ A given solution can be run by using its binary. Example to run solution to `Pro
 [1]: http://projecteuler.net
 
 
-Copyright &copy; 2020 - Anand B Pillai <anandpillai at letterboxes dot org>
+Copyright &copy; 2020 - Anand B Pillai &lt;anandpillai at letterboxes dot org&gt;
