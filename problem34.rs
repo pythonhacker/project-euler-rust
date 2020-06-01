@@ -1,7 +1,6 @@
 // Find the sum of all numbers which are equal to the sum of the factorial of their digits.
 
 fn factorial(n: u64) -> u64 {
-    
     return (2..n+1).fold(1u64, |p,x| p*x);
 }
 
