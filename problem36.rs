@@ -23,7 +23,7 @@ fn is_palindrome(s: String) -> bool {
     let mut svec: Vec<String> = s.chars().map( |x| x.to_string()).collect();
 //    println!("{:?}", svec);
 
-    loop {
+    while !svec.is_empty()  {
         let first:String = svec.first().unwrap().to_string();
         if first != svec.pop().unwrap() {
             return false;
@@ -32,7 +32,6 @@ fn is_palindrome(s: String) -> bool {
         if svec.len() > 0 {
             svec.remove(0);
         }
-        if svec.len() == 0 { break; }        
     }
         
     return true;
