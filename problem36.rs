@@ -29,10 +29,10 @@ fn is_palindrome(s: String) -> bool {
             return false;
         }
 
-        if svec.len() == 0 { break; }
-        svec.remove(0);
+        if svec.len() > 0 {
+            svec.remove(0);
+        }
         if svec.len() == 0 { break; }        
-        
     }
         
     return true;
