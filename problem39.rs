@@ -11,9 +11,8 @@ fn triplet_finder(p: u64) -> Vec<(u64,u64,u64)> {
     let p_root: u64 = ((p as f64).sqrt() as u64) + 1;
     let mut z:u64;
     
-    for x in p_root..p {
-        for y in p_root..p {
-            if x+y > p {continue;}
+    for x in p_root..p/2 {
+        for y in p_root..p/2 {
 
             z = p - (x+y);
             if z<=x || z <=y {
