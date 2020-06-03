@@ -26,7 +26,7 @@ fn is_prime(n: u64)  -> bool {
 
 fn largest_pandigital_prime() {
     
-    let template: String = "123456789".to_string();
+    let template: String = "1234567".to_string();
     // We start with 7654321 - why ?
     // Cuz 987654321 and its permuations are divisible by 9 (sum: 45)
     // Similarly 87654321 and its permutations are also divisible by 9 (sum: 36)
