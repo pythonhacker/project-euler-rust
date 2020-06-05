@@ -61,5 +61,5 @@ fn find_triangle_words(filename: &str) -> u32 {
 
 
 fn main() {
-    println!("{}", find_triangle_words("p042_words.txt"));
+    println!("{}", find_triangle_words("triangle_words.txt"));
 }
