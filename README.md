@@ -10,15 +10,21 @@ The compilation is done using Rust's cargo tool.
 
 ## Pre-requisites
 
-Ensure that you have the latest stable `Rust` compiler and associated build tools (`Cargo`) installed. Verify that you are able to install external crates. The code here has been built and tested with Rust `1.34.2` version .
+Ensure that you have the latest stable `Rust` compiler and associated build tools (`Cargo`) installed. Verify that you are able to install external crates. The code here has been built and tested with Rust version 1.34.2 .
 
 ## Building code
 
-###1. Using Makefile
+### Using Makefile
+
+Just run `make` on the repo.
 
     $ make
 
-###2. Manual
+Do `make clean` to clean the binary targets.
+
+	$ make clean
+
+### Manual
 
 Run the script `build_cargo.py` using python to create a `Cargo.toml` from the rust source files. Now build the code using,
 
