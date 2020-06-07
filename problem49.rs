@@ -1,3 +1,5 @@
+// Prime permutations
+
 extern crate itertools;
 
 use itertools::Itertools;
