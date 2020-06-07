@@ -1,6 +1,6 @@
 ## About
 
-The repo contains solutions to [Project Euler][1] in Rust.
+The repo contains original solutions to [Project Euler][1] in Rust.
 
 ## Source files
 
@@ -8,11 +8,19 @@ Each source file maps to a given Project Euler problem by index. So `Problem `1 
 
 The compilation is done using Rust's cargo tool.
 
-## Create `Cargo.toml`
+## Pre-requisites
 
-Run the script `build_cargo.py` using python to create a `Cargo.toml` from the rust source files.
+Ensure that you have the latest stable `Rust` compiler and associated build tools (`Cargo`) installed. Verify that you are able to install external crates. The code here has been built and tested with Rust `1.34.2` version .
 
-## Build code
+## Building code
+
+###1. Using Makefile
+
+    $ make
+
+###2. Manual
+
+Run the script `build_cargo.py` using python to create a `Cargo.toml` from the rust source files. Now build the code using,
 
     $ cargo build
 
@@ -22,10 +30,15 @@ A given solution can be run by using its binary. Example to run solution to `Pro
 
     $ cargo run --bin problem1
 
+## Principles
+
+1. All the code here is originally written by the author. No code has been copied from any other source.
+2. An effort has been maintained to write code with least compiler warnings and generally keeping up with Rust coding principles. However the code is not pedantic Rust.
+3. Almost all code is written with performance in mind and keep up with Project Euler principle of running under a minute. 
 
 [1]: http://projecteuler.net
 
 
 ## Copyright
 
-Copyright &copy; 2020 - Anand B Pillai &lt;anandpillai at letterboxes dot org&gt; See LICENSE for more details.
+Copyright &copy; 2020 - Anand B Pillai &lt;anandpillai at letterboxes dot org&gt;
