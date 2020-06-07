@@ -2,6 +2,7 @@
 
 use std::collections::HashMap;
 
+
 // Return sum of divisors of a given number
 fn get_divisor_sum(n: i64, divisors: &mut HashMap<i64, i64>) -> i64 {
 

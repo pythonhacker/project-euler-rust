@@ -20,7 +20,6 @@ fn prime_sum(limit: i64) -> i64 {
 
     let (mut n, mut sum)=(2,0);
     let mut primes:Vec<i64> = vec![2];
-    
     while n<limit {
         if is_prime(n, &primes) {
             sum += n;

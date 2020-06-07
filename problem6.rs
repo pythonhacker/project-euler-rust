@@ -14,7 +14,7 @@ fn sum_squares(n:i64)->i64 {
 fn square_sum(n:i64)->i64 {
     let mut s:i64 = 0;
 
-    for i in (1..n+1) {
+    for i in 1..n+1 {
         s += i;
     }
 
