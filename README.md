@@ -22,7 +22,7 @@ Just run `make` on the repo.
 
 Do `make clean` to clean the binary targets.
 
-	$ make clean
+    $ make clean
 
 ### Manual
 
@@ -40,7 +40,7 @@ A given solution can be run by using its binary. Example to run solution to `Pro
 
 1. All the code here is originally written by the author. No code has been copied from any other source.
 2. An effort has been maintained to write code with least compiler warnings and generally keeping up with Rust coding principles. However the code is not pedantic Rust.
-3. Almost all code is written with performance in mind and keep up with Project Euler principle of running under a minute. 
+3. Almost all code is written with performance in mind and keep up with Project Euler principle of running under a minute. (Most solutions run under a second.)
 
 [1]: http://projecteuler.net
 
