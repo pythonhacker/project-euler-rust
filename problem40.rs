@@ -6,7 +6,7 @@
 
 // d1*d10*d100*d1000*d10000*d100000*d1000000
 
-fn champernone_product() {
+fn champernowne_product() {
 
     let mut n: u64 = 1;
     let mut prod: u64 = 1;
@@ -35,6 +35,6 @@ fn champernone_product() {
 }
 
 fn main() {
-    champernone_product();
+    champernowne_product();
 }
         
