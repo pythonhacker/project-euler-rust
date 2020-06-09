@@ -18,6 +18,7 @@ fn is_prime(n: u64)  -> bool {
     return flag;
 }
 
+// Return a vector of primes < a given limit
 fn consecutive_primes(limit: u64) -> Vec<u64> {
 
     let mut n = 3;
@@ -36,7 +37,9 @@ fn consecutive_primes(limit: u64) -> Vec<u64> {
 
 fn max_consecutive_prime_sum(limit: u64) {
 
-    let primes: Vec<u64> = consecutive_primes(limit);
+    // We need just primes till maximum half of the limit
+    let primes: Vec<u64> = consecutive_primes(limit/2);
+    
     let mut idx: usize = 0;
     let mut sum: u64 = 0;
     let mut max_sum: u64 = 0;
@@ -65,18 +68,21 @@ fn max_consecutive_prime_sum(limit: u64) {
             }
         }
 
-        idx += 1;
         println!("Max sum => {} {} {}", max_sum, max_size, primes[idx]);
         
         // No point continuing if the next prime + current_sum > limit
         if primes[idx] + max_sum > limit {
             break;
         }
+        
+        idx += 1;
+        if idx == primes.len() { break; }
+
     }
 
     println!("Final max sum => {}", max_sum);
 }
 
 fn main() {
-    max_consecutive_prime_sum(1000000);
+    max_consecutive_prime_sum(1000);
 }
