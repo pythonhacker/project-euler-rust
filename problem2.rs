@@ -8,7 +8,8 @@
 
 fn fibonacci_sum(limit: i32) -> i32 {
 
-    let (mut a, mut b, mut s, mut c) = (1,1,0, 0);
+    let (mut a, mut b, mut s) = (1,1,0);
+    let mut c;
 
     loop {
         c = a + b;
@@ -25,6 +26,6 @@ fn fibonacci_sum(limit: i32) -> i32 {
 }
 
 fn main() {
-    println!("{}", fibonacci_sum(1000000));
+    println!("{}", fibonacci_sum(4000000));
 }
       
