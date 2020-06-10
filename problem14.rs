@@ -19,7 +19,8 @@ fn collatz(n: i64) -> i64 {
 
 fn find_largest(n:i64) -> (i64, i64) {
 
-    let (mut largest, mut cur_n, mut cn) = (0,0,0);
+    let (mut largest, mut cur_n) = (0,0);
+    let mut cn;
 
     for x in 1..n+1 {
         cn = collatz(x);
