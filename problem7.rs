@@ -4,7 +4,7 @@ fn nth_prime(limit:i32)->i64 {
 
     let (mut n, mut count) = (2, 1);
     let mut primes:Vec<i64> = vec![2];
-    let mut is_prime:bool = false;
+    let mut is_prime:bool;
     
     while count<limit {
         n += 1;
