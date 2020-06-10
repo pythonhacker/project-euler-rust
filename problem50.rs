@@ -84,5 +84,5 @@ fn max_consecutive_prime_sum(limit: u64) {
 }
 
 fn main() {
-    max_consecutive_prime_sum(1000);
+    max_consecutive_prime_sum(1000000);
 }
