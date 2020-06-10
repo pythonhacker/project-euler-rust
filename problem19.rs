@@ -11,7 +11,7 @@
 // Return which day 1st of a month fell
 // 0 -> Sunday, 1 -> Monday ... 6 -> Saturday
 
-use std::env;
+// use std::env;
 
 // Return number of days on a year in feb
 fn num_days_feb( year: u32 ) -> u32 {
@@ -31,7 +31,7 @@ fn num_days_feb( year: u32 ) -> u32 {
 
 // Return dow which 1st of a month falls on
 fn day1_of_month(month: u32, year: u32) -> u32 {
-    let mut dom: u32 = 0;
+    let dom: u32;
     
     if month == 1 {
         if year == 1900 {
@@ -101,11 +101,16 @@ fn dom_to_dow(dom: u32) -> &'static str {
 }
 
 fn main() {
-    let args: Vec<String> = env::args().collect();
+    // Uncomment commented lines if you want to run this to
+    // read year and month as cmd-line arguments.
+    
+//    let args: Vec<String> = env::args().collect();
     
     let mut s_count: u32 = 0;
-    let year: u32 = args[1].parse::<u32>().unwrap();
-    let month: u32 = args[2].parse::<u32>().unwrap();
+    // let year: u32 = args[1].parse::<u32>().unwrap();
+    // let month: u32 = args[2].parse::<u32>().unwrap();
+    let year = 2000;
+    let month = 12;
     println!("Calculating till {} {}", year, month);
 
     for y in 1901..year+1 {
