@@ -34,7 +34,7 @@ fn find_gcd(numbers: &Vec<i64>)->i64 {
 
 fn lcm(x:i64, y:i64) -> i64 {
 
-    let (mut num, mut den, mut n_gcd, mut n_lcm)=(0,0,0,0);
+    let (num, den, n_gcd, n_lcm);
     
     if x>y {
         num = x;
