@@ -41,7 +41,7 @@ fn max_consecutive_prime_sum(limit: u64) {
     let primes: Vec<u64> = consecutive_primes(limit/2);
     
     let mut idx: usize = 0;
-    let mut sum: u64 = 0;
+    let mut sum: u64;
     let mut max_sum: u64 = 0;
     let mut max_size: usize = 0;
     
