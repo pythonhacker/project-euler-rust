@@ -1,4 +1,4 @@
-// Maximum path sum
+// NOTE: Problem18 is unsolved!
 use std::fs::File;
 use std::io::{self, BufRead};
 use std::path::Path;
@@ -52,7 +52,7 @@ impl TriangleGrid {
                 let mut j_last: usize = 0;
                 
                 for j in 0..row.len() {
-                    let mut diff = 0;
+                    let mut diff;
                     if j >= last_idx {
                         diff = j - last_idx;
                     } else {
