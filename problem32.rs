@@ -23,7 +23,7 @@ fn vector_to_digit(num_vec: Vec<&u32>) -> u32 {
 // where #digits(a) -> r1 and #digits(b) -> r2
 fn pandigital_product(r1: usize, r2: usize) -> u32{
 
-    let mut n1: Vec<u32>;
+    let n1: Vec<u32>;
     let numbers: Vec<u32> = vec!(1,2,3,4,5,6,7,8,9);
     let template: String = "123456789".to_string();
     let mut products: Vec<u32> = vec![];
