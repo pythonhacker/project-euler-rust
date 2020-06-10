@@ -16,8 +16,6 @@ fn sum_numbers(filename: &str) {
     let mut sum: BigUint = 0u32.into();
     
     if let Ok(lines) = read_lines(filename) {
-        let mut i = 0;
-        
         for line in lines {
             if let Ok(number) = line {
                 let nb = number.as_bytes();
