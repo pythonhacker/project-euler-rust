@@ -21,7 +21,8 @@ fn is_palindrome(number: i64) -> bool {
 fn largest_palindrome(number: i32, diff: i32) -> i32 {
 
     let (n1,n2) = (number-1, number-1);
-    let (mut largest, mut n) = (0, 0);
+    let mut largest = 0;
+    let mut n;
 
     for x in (n1-diff..n1).rev() {
         for y in (n2-diff..n2).rev() {
