@@ -1,4 +1,5 @@
 //  Lattice paths
+use std::env;
 
 // Recursive solution
 fn npaths_r(x: i64, y: i64, h: i64, w: i64)->i64 {
@@ -38,7 +39,13 @@ fn npaths_i(n: u128) -> u128 {
 fn main() {
     // Uncomment below line for recursive solution
     // Warning: Its very computational intensive and takes a while to run.
-    
-    // println!("{}", npaths_r(0,0,20,20));
-    println!("{}", npaths_i(20));
+
+    let args: Vec<String> = env::args().collect();
+
+    if args.len() > 1 && args[1] == "-r" {
+        println!("Using recursion");
+        println!("{}", npaths_r(0,0,20,20));
+    } else {
+        println!("{}", npaths_i(20));
+    }
 }
