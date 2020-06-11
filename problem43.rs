@@ -3,6 +3,10 @@ extern crate itertools;
 
 use itertools::Itertools;
 
+mod common;
+
+use common::{vector_to_digit};
+
 fn check_sub_divisibility(n_vec: &Vec<u64>) -> bool {    
 
     // Already taking care of 2,3 and 5 divisibility in main loop
@@ -12,19 +16,6 @@ fn check_sub_divisibility(n_vec: &Vec<u64>) -> bool {
     let d7: bool = vector_to_digit(&n_vec[7..].to_vec()) % 17 == 0;
 
     return [d4,d5,d6,d7].iter().fold(true, |p,x| p &x);
-}
-
-fn vector_to_digit(num_vec: &Vec<u64>) -> u64 {
-
-    let mut num: u64 = 0;
-    let mut i: u64 = 0;
-
-    for n in num_vec.iter().rev() {
-        num += 10u64.pow(i as u32)*n;
-        i += 1;
-    }
-
-    return num;
 }
 
 fn pandigital_divisible_sum() -> u64 {

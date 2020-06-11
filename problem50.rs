@@ -1,39 +1,8 @@
 // Consecutive prime sum
 //  Which prime, below one-million, can be written as the sum of the most consecutive primes?
 
-fn is_prime(n: u64)  -> bool {
-
-    let mut flag = true;
-    let mut item: u64 = 2;
-
-    loop {
-        if item*item > n { break; }
-        if n % item == 0 {
-            flag = false;
-            break;
-        }
-        item += 1;
-    }
-        
-    return flag;
-}
-
-// Return a vector of primes < a given limit
-fn consecutive_primes(limit: u64) -> Vec<u64> {
-
-    let mut n = 3;
-    let mut primes:Vec<u64> = vec![2];
-
-    while n<limit {
-        if is_prime(n) {
-            primes.push(n);
-        }
-
-        n += 2;
-    }
-        
-    return primes;
-}
+mod common;
+use common::{is_prime, consecutive_primes};
 
 fn max_consecutive_prime_sum(limit: u64) {
 

@@ -1,20 +1,6 @@
+mod common;
 
-fn is_prime(n: i64)  -> bool {
-
-    let mut flag = true;
-    let mut item: i64 = 2;
-
-    loop {
-        if item*item > n { break; }
-        if n % item == 0 {
-            flag = false;
-            break;
-        }
-        item += 1;
-    }
-        
-    return flag;
-}
+use common::{is_prime_i64};
 
 fn count_primes(a: i64, b: i64) -> i64 { 
 
@@ -25,7 +11,7 @@ fn count_primes(a: i64, b: i64) -> i64 {
         val = n*(n+a) + b;
         if val<2 { break; }
         
-        if !is_prime(val) {
+        if !is_prime_i64(val) {
             break;
         }
         n += 1;

@@ -8,7 +8,7 @@ fn fibonacci_big() {
 
     let mut a: BigUint = 0u32.into();
     let mut b: BigUint = 1u32.into();
-    let mut c: BigUint = 0u32.into();
+    let mut c: BigUint;
     let mut index: i32 = 1;
     
     loop {

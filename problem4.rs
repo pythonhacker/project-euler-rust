@@ -29,7 +29,8 @@ fn largest_palindrome(number: i32, diff: i32) -> i32 {
             n = x*y;
             if is_palindrome(n as i64) && n>largest {
                 largest = n;
-            }
+                break;
+            } 
         }
     }
 

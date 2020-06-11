@@ -1,26 +1,8 @@
 // Goldbach's other conjecture
 // What is the smallest odd composite that cannot be written as the sum of a prime and twice a square?
 
-fn is_prime(n: u64)  -> bool {    
-
-    if n <= 1 {
-        return false;
-    }
-
-    let mut flag = true;
-    let mut item: u64 = 2;
-
-    loop {
-        if item*item > n { break; }
-        if n % item == 0 {
-            flag = false;
-            break;
-        }
-        item += 1;
-    }
-
-    return flag;
-}
+mod common;
+use common::{is_prime};
 
 fn smallest_composite() {
 

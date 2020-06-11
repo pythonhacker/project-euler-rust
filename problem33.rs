@@ -1,17 +1,7 @@
 // Digit canceling fractions
 
-fn digit_to_vector(num:u32) -> Vec<u32> {
-
-    let mut vdigits: Vec<u32> = vec![];
-    let mut n = num;
-
-    while n > 0 {
-        vdigits.push(n%10);
-        n = n / 10;
-    }
-
-    return vdigits;
-}
+mod common;
+use common::{digit_to_vector_32};
 
 fn gcd(mut x: u32, mut y: u32)->u32 {
 
@@ -37,14 +27,14 @@ fn main() {
         // Avoid multiples of 10
         if n % 10 == 0 { continue; }
         
-        let mut nvec = digit_to_vector(n);
+        let mut nvec = digit_to_vector_32(n);
         // Avoid trivial numbers like 11, 22, 33 etc
         if nvec[0] == nvec[1] { continue; }
         
         for d in n+1..100 {
             if d % 10 == 0 { continue; }
             
-            let mut dvec = digit_to_vector(d);
+            let mut dvec = digit_to_vector_32(d);
             if dvec[0] == dvec[1] { continue; }            
 
             f1 = (n as f32)/(d as f32);

@@ -5,19 +5,9 @@ extern crate itertools;
 use itertools::Itertools;
 use std::iter::FromIterator;
 
-// [1,2,3,4] => 1234
-fn vector_to_digit(num_vec: Vec<&u32>) -> u32 {
+mod common;
 
-    let mut num: u32 = 0;
-    let mut i: u32 = 0;
-
-    for n in num_vec.iter().rev() {
-        num += 10u32.pow(i)*(*n);
-        i += 1;
-    }
-
-    return num;
-}
+pub use common::{vector_to_digit_32};
 
 // Return sum of pandigital product using two multiplicands axb
 // where #digits(a) -> r1 and #digits(b) -> r2
@@ -38,14 +28,14 @@ fn pandigital_product(r1: usize, r2: usize) -> u32{
             }
         }
 
-        let d1: u32 = vector_to_digit(p1);
+        let d1: u32 = vector_to_digit_32(p1);
         let mut d2: u32;
         let mut d3: u32;
         let mut prod_str: String;
         let mut prod_str_chars: Vec<char>;
         
         for p2 in n2.iter().permutations(r2) {
-            d2 = vector_to_digit(p2);
+            d2 = vector_to_digit_32(p2);
             d3 = d1*d2;
             prod_str = format!("{}{}{}",d1,d2,d3);
             // println!("{}", prod_str);
