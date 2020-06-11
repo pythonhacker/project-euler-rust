@@ -199,3 +199,89 @@ pub fn largest_prime_factor(n: u64)->u64 {
 
 }
 
+#[allow(dead_code)]        
+pub fn gcd(mut x:u64, mut y:u64)->u64 {
+
+    let mut temp: u64;
+    
+    while y > 0 {
+        temp = x;
+        x = y;
+        y = temp % y;
+    }
+
+    return x;
+}
+
+#[allow(dead_code)]        
+pub fn find_gcd(numbers: &Vec<u64>)->u64 {
+
+    let x:u64 = numbers[0];
+    let y:u64 = numbers[1];
+
+    let num_v: Vec<u64> = numbers[2..].to_vec();
+
+    let mut n_gcd:u64 = gcd(x, y);
+
+    for num in num_v.iter() {
+        n_gcd = gcd(n_gcd, *num);
+    }
+
+    return n_gcd;
+
+}
+
+#[allow(dead_code)]        
+pub fn lcm(x:u64, y:u64) -> u64 {
+
+    let (num, den, n_gcd, n_lcm);
+    
+    if x>y {
+        num = x;
+        den = y;
+    } else {
+        num = y;
+        den = x;
+    }
+
+    n_gcd = gcd(den, num);
+
+    n_lcm = x*y/n_gcd;
+
+    return n_lcm;
+}
+
+#[allow(dead_code)]        
+pub fn find_lcm(numbers: &Vec<u64>) -> u64 {
+
+
+    let x:u64 = numbers[0];
+    let y:u64 = numbers[1];
+
+    let num_v: Vec<u64> = numbers[2..].to_vec();
+
+    let mut n_lcm:u64 = lcm(x, y);
+
+
+    for num in num_v.iter() {
+        n_lcm = lcm(n_lcm, *num);
+    }
+
+    return n_lcm;    
+
+}
+
+#[allow(dead_code)]        
+pub fn gcd_32(mut x: u32, mut y: u32)->u32 {
+
+    let mut temp: u32;
+    
+    while y > 0 {
+        temp = x;
+        x = y;
+        y = temp % y;
+    }
+
+    return x;
+}
+
