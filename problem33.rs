@@ -1,20 +1,7 @@
 // Digit canceling fractions
 
 mod common;
-use common::{digit_to_vector_32};
-
-fn gcd(mut x: u32, mut y: u32)->u32 {
-
-    let mut temp: u32;
-    
-    while y > 0 {
-        temp = x;
-        x = y;
-        y = temp % y;
-    }
-
-    return x;
-}
+use common::{digit_to_vector_32, gcd_32};
 
 fn main() {
 
@@ -53,7 +40,7 @@ fn main() {
     }
 
     // Get highest common factor
-    let factor = gcd(prod_num, prod_denom);
+    let factor = gcd_32(prod_num, prod_denom);
     // Divide it by the denominator - that is the answer.
     println!("{}", prod_denom/factor);
 

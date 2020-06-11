@@ -2,77 +2,12 @@
 
 // What is the smallest positive number that is evenly divisible by all of the numbers from 1 to 20?
 
-fn gcd(mut x:i64, mut y:i64)->i64 {
-
-    let mut temp: i64;
-    
-    while y > 0 {
-        temp = x;
-        x = y;
-        y = temp % y;
-    }
-
-    return x;
-}
-
-fn find_gcd(numbers: &Vec<i64>)->i64 {
-
-    let x:i64 = numbers[0];
-    let y:i64 = numbers[1];
-
-    let num_v: Vec<i64> = numbers[2..].to_vec();
-
-    let mut n_gcd:i64 = gcd(x, y);
-
-    for num in num_v.iter() {
-        n_gcd = gcd(n_gcd, *num);
-    }
-
-    return n_gcd;
-
-}
-
-fn lcm(x:i64, y:i64) -> i64 {
-
-    let (num, den, n_gcd, n_lcm);
-    
-    if x>y {
-        num = x;
-        den = y;
-    } else {
-        num = y;
-        den = x;
-    }
-
-    n_gcd = gcd(den, num);
-
-    n_lcm = x*y/n_gcd;
-
-    return n_lcm;
-}
-
-fn find_lcm(numbers: &Vec<i64>) -> i64 {
-
-
-    let x:i64 = numbers[0];
-    let y:i64 = numbers[1];
-
-    let num_v: Vec<i64> = numbers[2..].to_vec();
-
-    let mut n_lcm:i64 = lcm(x, y);
-
-
-    for num in num_v.iter() {
-        n_lcm = lcm(n_lcm, *num);
-    }
-
-    return n_lcm;    
-
-}
+mod common;
+use common::{find_gcd, find_lcm};
 
 fn main() {
 
-    let numbers: Vec<i64>  = (2..21).collect();
+    let numbers: Vec<u64>  = (2..21).collect();
     println!("{:?}", &numbers);
     
     println!("{}", find_gcd(&numbers));
