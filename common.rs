@@ -36,7 +36,7 @@ pub fn vector_to_digit(num_vec: &Vec<u64>) -> u64 {
 }
 
 #[allow(dead_code)]
-pub fn digit_to_vector_32(num:u32) -> Vec<u32> {
+pub fn digit_to_vector_u32(num:u32) -> Vec<u32> {
 
     let mut vdigits: Vec<u32> = vec![];
     let mut n = num;
@@ -53,7 +53,7 @@ pub fn digit_to_vector_32(num:u32) -> Vec<u32> {
 
 // [1,2,3,4] => 1234
 #[allow(dead_code)]    
-pub fn vector_to_digit_32(num_vec: Vec<&u32>) -> u32 {
+pub fn vector_to_digit_u32(num_vec: Vec<&u32>) -> u32 {
 
     let mut num: u32 = 0;
     let mut i: u32 = 0;
@@ -91,7 +91,7 @@ pub fn is_prime(n: u64)  -> bool {
 }
 
 #[allow(dead_code)]        
-pub fn is_prime_32(n: u32)  -> bool {
+pub fn is_prime_u32(n: u32)  -> bool {
 
     let mut flag = true;
     let mut item: u32 = 2;
@@ -145,7 +145,7 @@ pub fn is_prime_i64_ex(number: i64, primes: &Vec<i64>) -> bool {
 }
 
 #[allow(dead_code)]        
-pub fn get_prime_factors_32(n: u32) -> Vec<u32> {
+pub fn get_prime_factors_u32(n: u32) -> Vec<u32> {
 
     let mut p: u32 = 3;
     let mut factors: Vec<u32> = vec![];
@@ -155,7 +155,7 @@ pub fn get_prime_factors_32(n: u32) -> Vec<u32> {
     }
     
     loop {
-        if n % p == 0 && is_prime_32(p) {
+        if n % p == 0 && is_prime_u32(p) {
             factors.push(p);
         }
 
@@ -275,7 +275,7 @@ pub fn find_lcm(numbers: &Vec<u64>) -> u64 {
 }
 
 #[allow(dead_code)]        
-pub fn gcd_32(mut x: u32, mut y: u32)->u32 {
+pub fn gcd_u32(mut x: u32, mut y: u32)->u32 {
 
     let mut temp: u32;
     
