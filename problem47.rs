@@ -1,7 +1,7 @@
 // Distinct prime factors
 
 mod common;
-use common::{get_prime_factors_32};
+use common::{get_prime_factors_u32};
 
 fn consecutive_prime_factors(min_p: usize) -> Vec<u32> {
 
@@ -19,7 +19,7 @@ fn consecutive_prime_factors(min_p: usize) -> Vec<u32> {
     let mut numbers: Vec<u32> = vec![];
     
     for n in n_range {
-        let mut p_factors = get_prime_factors_32(n);
+        let mut p_factors = get_prime_factors_u32(n);
         if p_factors.len() >= min_p {
             numbers.push(n);
 
@@ -44,7 +44,7 @@ fn main () {
     let _factors = consecutive_prime_factors(4);
     println!("{:?}", _factors);
     for n in _factors.iter() {
-        println!("Prime factors of {} => {:?}", *n, get_prime_factors_32(*n));
+        println!("Prime factors of {} => {:?}", *n, get_prime_factors_u32(*n));
     }
 }
 
