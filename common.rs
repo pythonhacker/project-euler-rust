@@ -1,3 +1,6 @@
+use std::fs::File;
+use std::path::Path;
+use std::io::{self, BufRead};
 
 // Common functions
 
@@ -283,5 +286,12 @@ pub fn gcd_32(mut x: u32, mut y: u32)->u32 {
     }
 
     return x;
+}
+
+// Read lines from a file
+#[allow(dead_code)]        
+pub fn read_lines<P>(filename: P) -> io::Result<io::Lines<io::BufReader<File>>> where P: AsRef<Path>, {
+    let file = File::open(filename)?;
+    Ok(io::BufReader::new(file).lines())
 }
 

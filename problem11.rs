@@ -1,9 +1,9 @@
 // Maximum product in a Grid.
 
-use std::fs::File;
-use std::io::{self, BufRead};
-use std::path::Path;
 use std::str::FromStr;
+
+mod common;
+use common::{read_lines};
 
 struct Grid {
     data: Vec<Vec<u32>>,
@@ -11,10 +11,6 @@ struct Grid {
     height: usize
 }
 
-fn read_lines<P>(filename: P) -> io::Result<io::Lines<io::BufReader<File>>> where P: AsRef<Path>, {
-    let file = File::open(filename)?;
-    Ok(io::BufReader::new(file).lines())
-}
 
 impl Grid {
 

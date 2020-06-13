@@ -1,17 +1,12 @@
 // NOTE: Problem18 is unsolved!
-use std::fs::File;
-use std::io::{self, BufRead};
-use std::path::Path;
 use std::str::FromStr;
+
+mod common;
+use common::{read_lines};
 
 struct TriangleGrid {
     data: Vec<Vec<u32>>,
     height: usize
-}
-
-fn read_lines<P>(filename: P) -> io::Result<io::Lines<io::BufReader<File>>> where P: AsRef<Path>, {
-    let file = File::open(filename)?;
-    Ok(io::BufReader::new(file).lines())
 }
 
 impl TriangleGrid {

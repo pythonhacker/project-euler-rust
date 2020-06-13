@@ -1,15 +1,8 @@
-use std::fs::File;
-use std::io::{self, BufRead};
-use std::path::Path;
-
 extern crate num_bigint;
-
 use num_bigint::{BigUint};
 
-fn read_lines<P>(filename: P) -> io::Result<io::Lines<io::BufReader<File>>> where P: AsRef<Path>, {
-    let file = File::open(filename)?;
-    Ok(io::BufReader::new(file).lines())
-}
+mod common;
+use common::{read_lines};
 
 fn sum_numbers(filename: &str) {
 
