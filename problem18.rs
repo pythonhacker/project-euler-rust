@@ -1,12 +1,17 @@
-// NOTE: Problem18 is unsolved!
+// Maximum triangle path sum
+// Brute force approach - tries all paths using recursion.
+
 use std::str::FromStr;
+use std::cmp::max;
 
 mod common;
 use common::{read_lines};
 
 struct TriangleGrid {
     data: Vec<Vec<u32>>,
-    height: usize
+    height: usize,
+    count: u32,
+    max_routes: u32
 }
 
 impl TriangleGrid {
@@ -19,67 +24,41 @@ impl TriangleGrid {
             for line in lines {
                 if let Ok(numbers) = line {
                     let v: Vec<u32> = numbers.split(" ").map( |d| u32::from_str(d).unwrap()).collect();
-//                    println!("{:?}", v);
+                    // println!("{:?}", v);
                     self.data[i] = v;
                     i += 1;
                 }
             }
 
             self.height = i;
+            // Max routes = factorial(self.height)
+            self.max_routes = 2u32.pow((self.height-1) as u32);
+            println!("Max routes => {}",self.max_routes);
         }
     }
 
-    fn max_sum(&self)->u32 {
+    // Return maximum at a point [x,y] in the grid where
+    // x: row, and y: column
+    fn max_sum(&mut self, x: usize, y: usize) -> u32 {
 
-        let mut max_s: u32 = 0;
-        let mut curr_sum: u32;
-        let mut last_sum: u32 = 0;        
-        let mut last_idx: usize = 0;
-        
-        for i in 0..self.height {
-            let row = &self.data[i];
-            
-            if i == 0 {
-                last_idx = 0;
-                max_s = row[0];
-                last_sum = row[0];
-            } else {
-                let mut j_last: usize = 0;
-                
-                for j in 0..row.len() {
-                    let mut diff;
-                    if j >= last_idx {
-                        diff = j - last_idx;
-                    } else {
-                        continue;
-                    }
-                    
-                    if diff <= 1  {
-                        println!("Trying index {}",j);
-                        curr_sum = last_sum + row[j];
-                        if curr_sum > max_s {
-                            max_s = curr_sum;
-                            j_last = j;
-                        }
-                    }
-                }
-
-                last_sum = max_s;
-                last_idx = j_last;
-                println!("row: {}, num: {}", i+1, row[last_idx]);
-                
-            }
-            
-            println!("{:?}",row);
+        if x  == self.height {
+            self.count += 1;
+            return self.data[x-1][y];
         }
-
-        return max_s;
+        else {
+            let row: Vec<u32> = self.data[x-1].to_owned();            
+            let val1:u32 = self.max_sum(x+1,y);
+            let val2:u32 = self.max_sum(x+1, y+1);
+            
+            return max(row[y] + val1, row[y] + val2);
+        }
+        
     }
 }
 
 fn main() {
-    let mut mytriangle = TriangleGrid { data: vec![vec![0; 50]; 50], height: 0 };
+    let mut mytriangle = TriangleGrid { data: vec![vec![0; 50]; 50], height: 0, max_routes: 0, count: 0};
     mytriangle.read("triangle.txt".to_string());
-    println!("{}", mytriangle.max_sum());
 
+    println!("{}", mytriangle.max_sum(1, 0));
 }
