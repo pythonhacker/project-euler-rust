@@ -31,7 +31,7 @@ impl TriangleGrid {
             }
 
             self.height = i;
-            // Max routes = factorial(self.height)
+            // Max routes = 2**(height-1)
             self.max_routes = 2u32.pow((self.height-1) as u32);
             println!("Max routes => {}",self.max_routes);
         }
