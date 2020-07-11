@@ -84,3 +84,10 @@ pub fn vector_to_digit(num_vec: &Vec<BigUint>) -> BigUint {
 
     return num;
 }
+
+#[allow(dead_code)]
+// a**b using BigUint
+pub fn power(n: BigUint, exp: usize) -> BigUint {
+
+    return pow::pow(n.to_owned(), exp);
+}
