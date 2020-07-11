@@ -19,7 +19,7 @@ fn is_lychrel(n: BigUint, n_iter: &mut u32) -> bool {
 
     let n_rev: BigUint = vector_to_digit(&n_vector);
 
-    let n_sum: BigUint = (n + n_rev);
+    let n_sum: BigUint = n + n_rev;
 
     *n_iter += 1;
     if *n_iter == 50 {
@@ -41,7 +41,8 @@ fn is_lychrel(n: BigUint, n_iter: &mut u32) -> bool {
 fn main() {
     let mut count = 0;
     let mut n:u32 = 1;
-    let mut n_iter:u32 = 0;
+    let mut n_iter:u32;
+
     
     loop {
         println!("Trying {}", n);
