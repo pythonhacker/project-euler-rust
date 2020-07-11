@@ -24,13 +24,13 @@ fn is_lychrel(n: BigUint, n_iter: &mut u32) -> bool {
     *n_iter += 1;
     if *n_iter == 50 {
         println!("Max iterations reached");
-        return false;
+        return true;
     }
 
     // Jumping thru ownership hoops since BigUint does not implement Copy trait :-|    
     if is_palindrome(n_sum.to_owned()) {
         println!("palindrome at {} iterations, num: {}", n_iter, n_sum);
-        return true;
+        return false;
     } else {
         println!("iterations: {}, num: {}", n_iter, n_sum);
         return is_lychrel(n_sum, n_iter);
@@ -48,7 +48,7 @@ fn main() {
         println!("Trying {}", n);
         n_iter = 0;
         
-        if !is_lychrel(n.into(), &mut n_iter) {
+        if is_lychrel(n.into(), &mut n_iter) {
             println!("IS LYCHREL => {}", n);
             count += 1;
         }
