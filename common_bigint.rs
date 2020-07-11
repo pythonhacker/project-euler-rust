@@ -4,8 +4,8 @@ extern crate num_bigint;
 extern crate num_traits;
 
 use num_bigint::{BigUint};
+use self::num_traits::pow;
 
-use num_traits::pow;
 use std::iter::FromIterator;
 
 // Factorial using BigUint
