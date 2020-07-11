@@ -53,7 +53,7 @@ pub fn digit_to_vector(num: BigUint) -> Vec<BigUint> {
 
     let mut vdigits: Vec<BigUint> = vec![];
     let mut n = num;
-    let mut start: BigUint = 0u32.into();
+    let start: BigUint = 0u32.into();
     let p: BigUint = 10u32.into();
     let q: BigUint = 10u32.into();
     
