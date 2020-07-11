@@ -5,9 +5,41 @@ use std::io::{self, BufRead};
 // Common functions
 
 #[allow(dead_code)]        
+pub fn is_palindrome(number: u64) -> bool {
+
+    let mut n = number;
+    let mut rev = 0;
+    let mut dig;
+    
+    while n > 0 {
+        dig = n % 10;
+        rev = rev * 10 + dig;
+        n = n / 10;
+    }
+
+    return number == rev;
+}
+
+#[allow(dead_code)]        
 pub fn digit_to_vector(num:u64) -> Vec<u64> {
 
     let mut vdigits: Vec<u64> = vec![];
+    let mut n = num;
+
+    while n > 0 {
+        vdigits.push(n%10);
+        n = n / 10;
+    }
+
+    vdigits.reverse();
+    
+    return vdigits;
+}
+
+#[allow(dead_code)]
+pub fn digit_to_vector_u128(num:u128) -> Vec<u128> {
+
+    let mut vdigits: Vec<u128> = vec![];
     let mut n = num;
 
     while n > 0 {
@@ -36,6 +68,20 @@ pub fn vector_to_digit(num_vec: &Vec<u64>) -> u64 {
 }
 
 #[allow(dead_code)]
+pub fn vector_to_digit_u128(num_vec: &Vec<u128>) -> u128 {
+
+    let mut num: u128 = 0;
+    let mut i: u128 = 0;
+
+    for n in num_vec.iter().rev() {
+        num += 10u128.pow(i as u32)*n;
+        i += 1;
+    }
+
+    return num;
+}
+
+#[allow(dead_code)]
 pub fn digit_to_vector_u32(num:u32) -> Vec<u32> {
 
     let mut vdigits: Vec<u32> = vec![];
@@ -51,15 +97,29 @@ pub fn digit_to_vector_u32(num:u32) -> Vec<u32> {
     return vdigits;
 }
 
-// [1,2,3,4] => 1234
+// [1,2,3,4] => 1234 (using pointers)
 #[allow(dead_code)]    
-pub fn vector_to_digit_u32(num_vec: Vec<&u32>) -> u32 {
+pub fn vectorp_to_digit_u32(num_vec: Vec<&u32>) -> u32 {
 
     let mut num: u32 = 0;
     let mut i: u32 = 0;
 
     for n in num_vec.iter().rev() {
         num += 10u32.pow(i)*(*n);
+        i += 1;
+    }
+
+    return num;
+}
+
+#[allow(dead_code)]    
+pub fn vector_to_digit_u32(num_vec: Vec<u32>) -> u32 {
+
+    let mut num: u32 = 0;
+    let mut i: u32 = 0;
+
+    for n in num_vec.iter().rev() {
+        num += 10u32.pow(i)*(n);
         i += 1;
     }
 
