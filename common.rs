@@ -1,6 +1,7 @@
 use std::fs::File;
 use std::path::Path;
 use std::io::{self, BufRead};
+use std::collections::HashMap;
 
 // Common functions
 
@@ -147,6 +148,35 @@ pub fn is_prime(n: u64)  -> bool {
         item += 1;
     }
         
+    return flag;
+}
+
+#[allow(dead_code)]        
+pub fn is_prime_cached(n: u64, cache: &mut HashMap<u64, bool>)  -> bool {
+
+    if n <= 1 {
+        return false;
+    }
+
+    if cache.contains_key(&n) {
+//        println!("From cache - {}", n);
+        return *cache.get(&n).unwrap();
+    }
+            
+    let mut flag = true;
+    let mut item: u64 = 2;
+
+    loop {
+        if item*item > n { break; }
+        if n % item == 0 {
+            flag = false;
+            break;
+        }
+        item += 1;
+    }
+
+    cache.insert(n, flag);
+    
     return flag;
 }
 
